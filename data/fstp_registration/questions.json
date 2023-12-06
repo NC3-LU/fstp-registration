@@ -8,11 +8,12 @@
     "maxPoints": 0,
     "answers": [
       {
-          "aindex": 1,
-          "uniqueAnswer": true,
-          "score": 0,
-          "atype": "T",
-          "recommendations": []
+        "label": "",
+        "aindex": 1,
+        "uniqueAnswer": true,
+        "score": 0,
+        "atype": "T",
+        "recommendations": []
       }
     ]
   },
