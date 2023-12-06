@@ -25,8 +25,8 @@ SECRET_KEY = "u__*z&=urjtc0t)b)@5qbt_a#3-354=k9x(j)@eu#h7sb=-66s"
 
 HASH_KEY = b"KnX5YN3hvP54jOIMkacWdqxFX1RKk8cjqVZjGJbAscM="
 
-DEBUG = os.getenv("DEBUG").split(",") \
-    if os.getenv("ALLOWED_HOSTS") is not None \
+DEBUG = os.getenv("DEBUG") == "True" \
+    if os.getenv("DEBUG") is not None \
     else True
 
 DATABASES = {
