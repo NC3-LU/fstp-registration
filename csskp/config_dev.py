@@ -1,16 +1,21 @@
 import os
 
-PUBLIC_URL = ""
-ALLOWED_HOSTS = ["127.0.0.1", locals().get("PUBLIC_URL", "")]
+PUBLIC_URL = os.getenv("PUBLIC_URL") \
+    if os.getenv("PUBLIC_URL") is not None \
+    else ""
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",") \
+    if os.getenv("ALLOWED_HOSTS") is not None \
+    else ["127.0.0.1", locals().get("PUBLIC_URL", "")]
+
 OPERATOR_CONTACT = {
-    "name": "Organization Name",
-    "street": "Organization Street",
-    "zip_code": "Organization Zip Code",
-    "country": "Organization Country",
-    "phone": "Organization Phone Number",
-    "website": "https://www.example.org",
-    "contact_email": "contact@example.org",
-    "privacy_email": "privacy@exemple.org",
+    "name": "Luxembourg house of Cybersecurity (LHC)",
+    "street": "122 Rue Adolphe Fischer",
+    "zip_code": "1521",
+    "country": "Luxembourg",
+    "phone": "(+352) 274 00 98 601",
+    "website": "https://www.lhc.lu",
+    "contact_email": "contact@lhc.lu",
+    "privacy_email": "privacy@lhc.lu",
 }
 
 # The generic site/tool name. Used to load specific config, templates, styles, logo.
@@ -20,20 +25,25 @@ SECRET_KEY = "u__*z&=urjtc0t)b)@5qbt_a#3-354=k9x(j)@eu#h7sb=-66s"
 
 HASH_KEY = b"KnX5YN3hvP54jOIMkacWdqxFX1RKk8cjqVZjGJbAscM="
 
-DEBUG = True
+DEBUG = os.getenv("DEBUG").split(",") \
+    if os.getenv("ALLOWED_HOSTS") is not None \
+    else True
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "postgres",
         "USER": "postgres",
-        "PASSWORD": "password",
+        "PASSWORD": os.getenv("DATABASE_PASSWORD")
+            if os.getenv("DATABASE_PASSWORD") is not None
+            else "password",
         "HOST": "db",
         "PORT": 5432,
     }
 }
 
-CORS_ALLOWED_ORIGINS = []
+CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS").split(",") \
+    if os.getenv("CORS_ALLOWED_ORIGINS") is not None else []
 CORS_ALLOWED_ORIGIN_REGEXES = []
 CORS_ALLOW_METHODS = [
     "GET",
