@@ -36,6 +36,7 @@ WORKDIR csskp
 
 COPY admin admin/
 COPY csskp csskp/
+COPY data data/
 COPY locale locale/
 COPY static static/
 COPY stats stats/
