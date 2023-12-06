@@ -42,8 +42,13 @@ DATABASES = {
     }
 }
 
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS").split(",") \
+    if os.getenv("CSRF_TRUSTED_ORIGINS") is not None \
+    else []
+
 CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS").split(",") \
-    if os.getenv("CORS_ALLOWED_ORIGINS") is not None else []
+    if os.getenv("CORS_ALLOWED_ORIGINS") is not None \
+    else []
 CORS_ALLOWED_ORIGIN_REGEXES = []
 CORS_ALLOW_METHODS = [
     "GET",
