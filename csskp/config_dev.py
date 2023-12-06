@@ -10,7 +10,7 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",") \
 OPERATOR_CONTACT = {
     "name": "Luxembourg house of Cybersecurity (LHC)",
     "street": "122 Rue Adolphe Fischer",
-    "zip_code": "1521",
+    "zip_code": "L-1521 Luxembourg",
     "country": "Luxembourg",
     "phone": "(+352) 274 00 98 601",
     "website": "https://www.lhc.lu",
