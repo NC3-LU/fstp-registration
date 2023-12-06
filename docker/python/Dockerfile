@@ -34,6 +34,7 @@ RUN apt-get update && \
 
 WORKDIR csskp
 
+COPY admin admin/
 COPY csskp csskp/
 COPY locale locale/
 COPY static static/
